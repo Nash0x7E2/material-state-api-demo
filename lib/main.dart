@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_state_demo/interactive_card.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,6 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text('Flutter Vancouver 👋'),
       ),
@@ -52,10 +54,6 @@ class SpeakerCard extends StatefulWidget {
 }
 
 class _SpeakerCardState extends State<SpeakerCard> {
-  double borderRadius = 12.0;
-  Color buttonColor = Colors.red;
-  Color buttonTextColor = Colors.white;
-
   Widget _buildCardHeader() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -98,45 +96,31 @@ class _SpeakerCardState extends State<SpeakerCard> {
   @override
   Widget build(BuildContext context) {
     const vSpacing = SizedBox(height: 24.0);
-    return MouseRegion(
-      onHover: (_) => setState(() => borderRadius = 24.0),
-      onExit: (_) => setState(() => borderRadius = 12.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius),
-        ),
-        margin: const EdgeInsets.all(24.0),
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _buildCardHeader(),
-              vSpacing,
-              _buildCardContent(),
-              vSpacing,
-              MouseRegion(
-                onHover: (_) => setState(() {
-                  buttonColor = Colors.white;
-                  buttonTextColor = Colors.black;
-                }),
-                onExit: (_) => setState(() {
-                  buttonColor = Colors.red;
-                  buttonTextColor = Colors.white;
-                }),
-                child: RaisedButton(
-                  color: buttonColor,
-                  onPressed: () {
-                    // TODO
-                  },
-                  child: Text(
-                    'Learn More',
-                    style: TextStyle(color: buttonTextColor),
-                  ),
-                ),
-              )
-            ],
-          ),
+    return InteractiveCard(
+      shape: CardBorder(),
+      margin: const EdgeInsets.all(24.0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _buildCardHeader(),
+            vSpacing,
+            _buildCardContent(),
+            vSpacing,
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: CardButtonColor(),
+              ),
+              onPressed: () {
+                // TODO
+              },
+              child: Text(
+                'Learn More',
+                style: TextStyle(color: Colors.black),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -160,11 +144,7 @@ class Speaker {
           name: 'Neevash Ramdial',
           imageUrl: 'https://neevash.dev/assets/images/image01.jpg?v=61be2a2b',
           talkDescription: ''' 
-Over the years, Flutter has evolved from being a cross-platform mobile framework to a fully-fledged portable UI toolkit available on multiple operating systems and platforms.
-
-For businesses, this is great since they can ship applications on multiple platforms and reach more users, but for us developers, it leaves us asking the question, How do I handle and respond to interaction on different platforms?
-
-Join us as we explore Flutter's Material State properties and look at how it can help us respond to user interaction on multiple platforms.
+Something interesting...
                   ''',
         ),
       ];
