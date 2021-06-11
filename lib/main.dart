@@ -144,7 +144,11 @@ class Speaker {
           name: 'Neevash Ramdial',
           imageUrl: 'https://neevash.dev/assets/images/image01.jpg?v=61be2a2b',
           talkDescription: ''' 
-Something interesting...
+Over the years, Flutter has evolved from being a cross-platform mobile framework to a fully-fledged portable UI toolkit available on multiple operating systems and platforms.
+
+For businesses, this is great since they can ship applications on multiple platforms and reach more users, but for us developers, it leaves us asking the question, How do I handle and respond to interaction on different platforms?
+
+Join us as we explore Flutter's Material State properties and look at how it can help us respond to user interaction on multiple platforms.
                   ''',
         ),
       ];
