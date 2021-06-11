@@ -1,16 +1,16 @@
-# material_state_demo
+## Material State 
 
-A new Flutter project.
+![Flutter UX: Material State Properties](./screenshots/talk-banner.jpeg)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+This repository contains code for my talk on using Flutter's new `MaterialStateProperty`. 
 
-A few resources to get you started if this is your first Flutter project:
+The repo contains two branches, `master` which contains an implementation using gesture widgets such as `MouseRegion` and 
+`nash/using-material-state` which contains an implementation using [MaterialState](https://api.flutter.dev/flutter/material/MaterialStateProperty-class.html).
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Session abstract and talk information can be found on the GDG Montreal website linked [here](https://gdgmontreal.com/2021/05/25/google-io-extended-2021/).
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Happy Hacking!
+<br/>
+
+Twitter: [Nash0x7E2](https://twitter.com/Nash0x7E2)
